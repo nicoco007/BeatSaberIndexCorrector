@@ -16,8 +16,8 @@ pipeline {
         bat 'msbuild Source\\BeatSaberIndexCorrector.sln /p:Configuration=Debug /p:Platform="Any CPU" /p:AutomatedBuild=true'
         bat 'copy Source\\BeatSaberIndexCorrector\\bin\\Debug\\BeatSaberIndexCorrector.dll Packaging-Debug\\Plugins'
         bat 'copy Source\\BeatSaberIndexCorrector\\bin\\Debug\\BeatSaberIndexCorrector.pdb Packaging-Debug\\Plugins'
-        bat '7z a BeatSaber.BeatSaberIndexCorrector.DEBUG.zip -r "./Packaging-Debug/*"'
-        archiveArtifacts 'BeatSaber.BeatSaberIndexCorrector.DEBUG.zip'
+        bat '7z a BeatSaberIndexCorrector.DEBUG.zip -r "./Packaging-Debug/*"'
+        archiveArtifacts 'BeatSaberIndexCorrector.DEBUG.zip'
       }
     }
     stage('Prepare Release') {
@@ -30,8 +30,8 @@ pipeline {
       steps {
         bat 'msbuild Source\\BeatSaberIndexCorrector.sln /p:Configuration=Release /p:Platform="Any CPU" /p:AutomatedBuild=true'
         bat 'copy Source\\BeatSaberIndexCorrector\\bin\\Release\\BeatSaberIndexCorrector.dll Packaging-Release\\Plugins'
-        bat '7z a BeatSaber.BeatSaberIndexCorrector.RELEASE.zip -r "./Packaging-Release/*"'
-        archiveArtifacts 'BeatSaber.BeatSaberIndexCorrector.RELEASE.zip'
+        bat '7z a BeatSaberIndexCorrector.RELEASE.zip -r "./Packaging-Release/*"'
+        archiveArtifacts 'BeatSaberIndexCorrector.RELEASE.zip'
       }
     }
     stage('Clean up') {
