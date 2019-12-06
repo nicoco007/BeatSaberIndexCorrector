@@ -1,5 +1,6 @@
 ﻿using Harmony;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace BeatSaberIndexCorrector
 {
@@ -7,7 +8,7 @@ namespace BeatSaberIndexCorrector
     [HarmonyPatch("AdjustPlatformSpecificControllerTransform", MethodType.Normal)]
     public class AdjustPlatformSpecificControllerTransformPatch
     {
-        public static bool Prefix(Transform transform, VRPlatformHelper __instance)
+        public static bool Prefix(XRNode node, Transform transform, VRPlatformHelper __instance)
         {
             if (__instance.vrPlatformSDK != VRPlatformHelper.VRPlatformSDK.OpenVR)
             {

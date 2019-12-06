@@ -2,10 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/nike4613/ModSaber-MetadataFileSchema/master/Schema.json",
   "author": "Nicolas Gnyra",
   "description": "Fixes awkward Index controller orientation.",
-  "gameVersion": "1.5.0",
+  "gameVersion": "1.6.0b",
   "id": "IndexCorrector",
   "name": "Index Corrector",
   "icon": "BeatSaberIndexCorrector.Resources.icon.png",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "features": []
 }
