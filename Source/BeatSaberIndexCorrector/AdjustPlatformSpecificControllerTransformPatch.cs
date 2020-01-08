@@ -8,7 +8,7 @@ namespace BeatSaberIndexCorrector
     [HarmonyPatch("AdjustPlatformSpecificControllerTransform", MethodType.Normal)]
     public class AdjustPlatformSpecificControllerTransformPatch
     {
-        public static bool Prefix(XRNode node, Transform transform, VRPlatformHelper __instance)
+        public static bool Prefix(XRNode node, Transform transform, Vector3 addPosition, Vector3 addRotation, VRPlatformHelper __instance)
         {
             if (__instance.vrPlatformSDK != VRPlatformHelper.VRPlatformSDK.OpenVR)
             {
@@ -22,8 +22,8 @@ namespace BeatSaberIndexCorrector
                 return true;
             }
 
-            transform.Rotate(15f, 0f, 0f);
-            transform.Translate(0f, -0.03f, 0f);
+            transform.Rotate(new Vector3(15f, 0f, 0f) + addRotation);
+            transform.Translate(new Vector3(0f, -0.03f, 0f) + addPosition);
 
             return false;
         }
